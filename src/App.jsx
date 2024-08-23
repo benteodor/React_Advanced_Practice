@@ -4,6 +4,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './routes/Home';
 import Root from './routes/Root';
+import { DataProvider } from './contexts/DataContext';
 
 const theme = createTheme({
   palette: {
@@ -34,7 +35,9 @@ function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ThemeProvider theme={theme}>
+        <DataProvider>
         <RouterProvider router={router}></RouterProvider>
+        </DataProvider>
       </ThemeProvider>
     </LocalizationProvider>
   );
